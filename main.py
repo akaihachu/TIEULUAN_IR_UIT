@@ -5,7 +5,7 @@ from sklearn.preprocessing import  LabelEncoder
 import xgboost as xgb
 import numpy as np
 st.header("Test bài tập lớn Tìm kiếm thông tin thị giác -Đại học UIT ")
-st.text_input("Enter your Name: ", key="name")
+name=st.text_input("Enter your Name: ", key="name")
 data = pd.read_csv("https://raw.githubusercontent.com/gurokeretcha/WishWeightPredictionApplication/master/Fish.csv")
 #load label encoder
 encoder = LabelEncoder()
@@ -43,6 +43,16 @@ if st.button('Make Prediction'):
 
     st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
     st.write(f"If you want to see more advanced applications you can follow me on [medium](https://medium.com/@gkeretchashvili)")
+    st.write(f"Hello{name}")
 
+import cv2
+from PIL import Image
+image = Image.open('egypt.jpg')
+st.image(image, caption='Egypt Picture')
 
+uploaded_file = st.file_uploader("Choose an Image File", accept_multiple_files=False)
+if uploaded_file is not None:
+    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    opencv_image = cv2.imdecode(file_bytes, 1)
+    st.image(opencv_image, channels="BGR")
 
