@@ -9,3 +9,4 @@ matplotlib==3.5.1
 hyperopt==0.2.7
 opencv-python-headless
 h5py
+keras
