@@ -10,9 +10,4 @@ hyperopt==0.2.7
 opencv-python-headless
 
 h5py
-
-matplotlib.pyplot
-matplotlib.image
-
 vgg16.vgg16
-searcher
