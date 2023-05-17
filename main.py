@@ -4,6 +4,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import  LabelEncoder
 import xgboost as xgb
 import numpy as np
+import cv2
+from PIL import Image
+
 st.header("Test bài tập lớn Tìm kiếm thông tin thị giác -Đại học UIT ")
 name=st.text_input("Enter your Name: ", key="name")
 data = pd.read_csv("https://raw.githubusercontent.com/gurokeretcha/WishWeightPredictionApplication/master/Fish.csv")
@@ -45,8 +48,7 @@ if st.button('Make Prediction'):
     st.write(f"If you want to see more advanced applications you can follow me on [medium](https://medium.com/@gkeretchashvili)")
     st.write(f"Hello{name}")
 
-import cv2
-from PIL import Image
+
 image = Image.open('egypt.jpg')
 st.image(image, caption='Egypt Picture')
 
