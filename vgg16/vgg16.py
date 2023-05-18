@@ -4,8 +4,11 @@ from numpy import linalg as LA
 from keras.applications.vgg16 import VGG16
 # from keras.preprocessing import image
 import keras.utils as image
+import keras 
 
 from keras.applications.vgg16 import preprocess_input
+
+from tensorflow import image as iig
 
 class VGGNet:
     def __init__(self):
@@ -23,9 +26,11 @@ class VGGNet:
         feat = self.model.predict(img)
         norm_feat = feat[0]/LA.norm(feat[0])
         return norm_feat
-    def extract_feat_for_image(self, img):
+    def extract_feat_for_image(self, img_origin):
 #         img = image.load_img(img_path, target_size=(self.input_shape[0], self.input_shape[1]))
-        img = image.img_to_array(img)
+        img1=iig.resize(img_origin, (self.input_shape[0], self.input_shape[1]))
+#         img = image.img_to_array(img_origin)
+        img=np.array(img1)
         img = np.expand_dims(img, axis=0)
         img = preprocess_input(img)
         feat = self.model.predict(img)
