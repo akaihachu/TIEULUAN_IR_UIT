@@ -47,31 +47,31 @@ if uploaded_file is not None:
     st.image(opencv_image, channels="BGR")
     
     
-    if 'df' not in st.session_state:
-        df = initialize()
-        st.session_state.df = df
-    else:
-        df = st.session_state.df 
+#     if 'df' not in st.session_state:
+#         df = initialize()
+#         st.session_state.df = df
+#     else:
+#         df = st.session_state.df 
 
-    controls = st.columns(3)
-    with controls[0]:
-        batch_size1 = st.select_slider("Batch size:",range(4,20,4))
-        batch_size=10
-    with controls[1]:
-        row_size = st.select_slider("Row size:", range(1,6), value = 5)
-    num_batches = len(files)
+#     controls = st.columns(3)
+#     with controls[0]:
+#         batch_size1 = st.select_slider("Batch size:",range(4,20,4))
+#         batch_size=10
+#     with controls[1]:
+#         row_size = st.select_slider("Row size:", range(1,6), value = 5)
+#     num_batches = len(files)
     
-    with controls[2]:
-        page = st.selectbox("Page", range(1,num_batches+1))
+#     with controls[2]:
+#         page = st.selectbox("Page", range(1,num_batches+1))
 
-    batch = files[(page-1)*batch_size : page*batch_size]
+#     batch = files[(page-1)*batch_size : page*batch_size]
     
-    grid = st.columns(row_size)
-    col = 0
-    for image in batch:
-        with grid[col]:
-            st.image(f'{directory}\{image}', caption='bike')
-        col = (col + 1) % row_size
+#     grid = st.columns(row_size)
+#     col = 0
+#     for image in batch:
+#         with grid[col]:
+#             st.image(f'{directory}\{image}', caption='bike')
+#         col = (col + 1) % row_size
     
     
     
