@@ -24,20 +24,20 @@ uploaded_file = st.file_uploader("Choose an Image File", accept_multiple_files=F
 
 
 
-directory = r'images\bike'
-files = listdir(directory)
-def initialize():    
-    df = pd.DataFrame({'file':files,
-                    'incorrect':[False]*len(files),
-                    'label':['']*len(files)})
-    df.set_index('file', inplace=True)
-    return df
+# directory = r'images\bike'
+# files = listdir(directory)
+# def initialize():    
+#     df = pd.DataFrame({'file':files,
+#                     'incorrect':[False]*len(files),
+#                     'label':['']*len(files)})
+#     df.set_index('file', inplace=True)
+#     return df
     
-def update (image, col): 
-    df.at[image,col] = st.session_state[f'{col}_{image}']
-    if st.session_state[f'incorrect_{image}'] == False:
-       st.session_state[f'label_{image}'] = ''
-       df.at[image,'label'] = ''    
+# def update (image, col): 
+#     df.at[image,col] = st.session_state[f'{col}_{image}']
+#     if st.session_state[f'incorrect_{image}'] == False:
+#        st.session_state[f'label_{image}'] = ''
+#        df.at[image,'label'] = ''    
     
     
 
